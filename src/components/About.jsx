@@ -78,6 +78,30 @@ const AIToolTooltip = ({ tool, description }) => (
   </div>
 );
 
+/* Same Tooltip + span markup/classes as before, just wrapped so the content is easier to edit.
+   TechWord = white text (web/backend/devops), AIWord = purple text (AI topics). */
+const TechWord = ({ tech, description, children }) => (
+  <Tooltip
+    containerClassName="text-secondary"
+    content={<TechTooltip tech={tech} description={description} />}
+  >
+    <span className="text-white font-medium cursor-help border-b border-dotted border-white/30 hover:border-[#915EFF] transition-colors">
+      {children}
+    </span>
+  </Tooltip>
+);
+
+const AIWord = ({ tool, description, children }) => (
+  <Tooltip
+    containerClassName="text-secondary"
+    content={<AIToolTooltip tool={tool} description={description} />}
+  >
+    <span className="text-purple-300 font-medium cursor-help border-b border-dotted border-purple-300/30 hover:border-[#915EFF] transition-colors">
+      {children}
+    </span>
+  </Tooltip>
+);
+
 const AnimatedCounter = ({ end, duration = 2, suffix = "" }) => {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
@@ -137,51 +161,43 @@ const About = () => {
       >
         <p className='text-secondary text-[17px] max-w-3xl leading-[32px]'>
           I am a <span className="text-[#915EFF] font-semibold">Software Engineer & AI Developer</span> with{" "}
-          <span className="text-white font-medium">2+ years of experience</span> building scalable web applications, backend
-          systems, REST APIs, and{" "}
-          <Tooltip
-            containerClassName="text-secondary"
-            content={<TechTooltip tech="Artificial Intelligence" description="Building intelligent, autonomous AI agents and systems" />}
-          >
-            <span className="text-white font-medium cursor-help border-b border-dotted border-white/30 hover:border-[#915EFF] transition-colors">AI-powered automation</span>
-          </Tooltip>
+          <span className="text-white font-medium">2+ years of experience</span> across freelance and full-time roles,
+          building scalable web applications, backend systems, REST APIs, and{" "}
+          <AIWord tool="AI-Powered Automation" description="Intelligent, autonomous AI agents and automation systems for real business workflows">
+            AI-powered automation
+          </AIWord>
           {" "}solutions using{" "}
-          <Tooltip
-            containerClassName="text-secondary"
-            content={<TechTooltip tech="JavaScript & TypeScript" description="Core languages for modern web development" />}
-          >
-            <span className="text-white font-medium cursor-help border-b border-dotted border-white/30 hover:border-[#915EFF] transition-colors">JavaScript, TypeScript</span>
-          </Tooltip>
+          <TechWord tech="JavaScript & TypeScript" description="Core languages for modern web development">
+            JavaScript, TypeScript
+          </TechWord>
           ,{" "}
-          <Tooltip
-            containerClassName="text-secondary"
-            content={<TechTooltip tech="React.js & Next.js" description="Building dynamic, production-ready web applications" />}
-          >
-            <span className="text-white font-medium cursor-help border-b border-dotted border-white/30 hover:border-[#915EFF] transition-colors">React.js, Next.js</span>
-          </Tooltip>
+          <TechWord tech="React.js & Next.js" description="Building dynamic, production-ready web applications">
+            React.js, Next.js
+          </TechWord>
           , and{" "}
-          <Tooltip
-            containerClassName="text-secondary"
-            content={<TechTooltip tech="Python & FastAPI" description="Backend development and AI integration" />}
-          >
-            <span className="text-white font-medium cursor-help border-b border-dotted border-white/30 hover:border-[#915EFF] transition-colors">Python, FastAPI</span>
-          </Tooltip>
+          <TechWord tech="Python & FastAPI" description="Backend development and AI integration">
+            Python, FastAPI
+          </TechWord>
           . I'm currently working as a{" "}
-          <span className="text-[#915EFF] font-semibold">Software Engineer at CarbonRepro</span>, contributing to
-          AI-driven backend systems and enterprise applications, with hands-on experience in{" "}
-          <Tooltip
-            containerClassName="text-secondary"
-            content={<AIToolTooltip tool="Agentic AI" description="Building autonomous AI agents that can perform complex tasks independently" />}
-          >
-            <span className="text-purple-300 font-medium cursor-help border-b border-dotted border-purple-300/30 hover:border-[#915EFF] transition-colors">Agentic AI workflows</span>
-          </Tooltip>
+          <span className="text-[#915EFF] font-semibold">Full Stack Engineer at PRAQEN</span>, contributing to a live
+          trading platform through frontend and backend development, REST API integration, authentication, and{" "}
+          <TechWord tech="Wallet & Blockchain Systems" description="Wallet creation, balance management, transaction flows and blockchain integrations">
+            crypto wallet functionality
+          </TechWord>
+          . Previously, at <span className="text-white font-medium">NeuralHub</span>, I built{" "}
+          <AIWord tool="RAG Agents" description="Retrieval-Augmented Generation: AI agents that answer from your own data using vector search plus an LLM">
+            RAG-based AI agents
+          </AIWord>
+          {" "}for a healthcare platform that cut query response times by{" "}
+          <span className="text-white font-medium">40%</span> and served{" "}
+          <span className="text-white font-medium">8,000+ medical queries</span>. I also have hands-on experience with{" "}
+          <AIWord tool="Agentic AI" description="Building autonomous AI agents that can perform complex tasks independently">
+            Agentic AI workflows
+          </AIWord>
           {" "}and the{" "}
-          <Tooltip
-            containerClassName="text-secondary"
-            content={<AIToolTooltip tool="OpenAI SDK" description="Building intelligent automations and agents with OpenAI's API" />}
-          >
-            <span className="text-purple-300 font-medium cursor-help border-b border-dotted border-purple-300/30 hover:border-[#915EFF] transition-colors">OpenAI SDK</span>
-          </Tooltip>
+          <AIWord tool="OpenAI SDK" description="Building intelligent automations and agents with OpenAI's API">
+            OpenAI SDK
+          </AIWord>
           . I'm passionate about building intelligent, AI-powered solutions that solve real-world problems.
         </p>
       </motion.div>
@@ -194,132 +210,86 @@ const About = () => {
         transition={{ duration: 0.3 }}
       >
         <p className='text-secondary text-[17px] max-w-3xl leading-[32px]'>
-          Skilled in{" "}
-          <Tooltip
-            containerClassName="text-secondary"
-            content={<AIToolTooltip tool="OpenAI SDK" description="Building intelligent automations and agents with OpenAI's API" />}
-          >
-            <span className="text-purple-300 font-medium cursor-help border-b border-dotted border-purple-300/30 hover:border-[#915EFF] transition-colors">OpenAI SDK</span>
-          </Tooltip>
+          On the AI side, I work with{" "}
+          <AIWord tool="OpenAI SDK" description="Building intelligent automations and agents with OpenAI's API">
+            OpenAI SDK
+          </AIWord>
           ,{" "}
-          <Tooltip
-            containerClassName="text-secondary"
-            content={<AIToolTooltip tool="Agentic AI" description="Building autonomous AI agents that can perform complex tasks independently" />}
-          >
-            <span className="text-purple-300 font-medium cursor-help border-b border-dotted border-purple-300/30 hover:border-[#915EFF] transition-colors">Agentic AI</span>
-          </Tooltip>
+          <AIWord tool="Agentic AI & AI Agents" description="Building autonomous AI agents that can perform complex tasks independently">
+            Agentic AI, AI Agents
+          </AIWord>
           ,{" "}
-          <Tooltip
-            containerClassName="text-secondary"
-            content={<AIToolTooltip tool="Prompt Engineering" description="Crafting effective prompts for optimal AI performance" />}
-          >
-            <span className="text-purple-300 font-medium cursor-help border-b border-dotted border-purple-300/30 hover:border-[#915EFF] transition-colors">Prompt Engineering</span>
-          </Tooltip>
+          <AIWord tool="Qdrant & Vector Search" description="Vector database, embeddings and semantic search that power RAG pipelines">
+            Qdrant, Vector Search, Embeddings
+          </AIWord>
           ,{" "}
-          <Tooltip
-            containerClassName="text-secondary"
-            content={<AIToolTooltip tool="Claude Code CLI" description="AI-powered coding assistant in your terminal" />}
-          >
-            <span className="text-purple-300 font-medium cursor-help border-b border-dotted border-purple-300/30 hover:border-[#915EFF] transition-colors">Claude Code CLI</span>
-          </Tooltip>
+          <AIWord tool="Prompt Engineering" description="Crafting effective prompts for optimal AI performance">
+            Prompt Engineering
+          </AIWord>
           ,{" "}
-          <Tooltip
-            containerClassName="text-secondary"
-            content={<AIToolTooltip tool="Gemini CLI" description="Google's AI capabilities through command line" />}
-          >
-            <span className="text-purple-300 font-medium cursor-help border-b border-dotted border-purple-300/30 hover:border-[#915EFF] transition-colors">Gemini CLI</span>
-          </Tooltip>
+          <AIWord tool="n8n" description="Workflow automation platform for connecting apps and AI agents">
+            n8n
+          </AIWord>
+          ,{" "}
+          <AIWord tool="Claude Code CLI" description="AI-powered coding assistant in your terminal">
+            Claude Code CLI
+          </AIWord>
           , and{" "}
-          <Tooltip
-            containerClassName="text-secondary"
-            content={<AIToolTooltip tool="OpenClaw" description="Agentic automation tool for AI-driven workflows" />}
-          >
-            <span className="text-purple-300 font-medium cursor-help border-b border-dotted border-purple-300/30 hover:border-[#915EFF] transition-colors">OpenClaw</span>
-          </Tooltip>
+          <AIWord tool="Gemini CLI" description="Google's AI capabilities through command line">
+            Gemini CLI
+          </AIWord>
           . On the frontend I use{" "}
-          <Tooltip
-            containerClassName="text-secondary"
-            content={<TechTooltip tech="React.js & Next.js" description="Building dynamic, production-ready web applications" />}
-          >
-            <span className="text-white font-medium cursor-help border-b border-dotted border-white/30 hover:border-[#915EFF] transition-colors">React.js, Next.js</span>
-          </Tooltip>
+          <TechWord tech="React.js & Next.js" description="Building dynamic, production-ready web applications">
+            React.js, Next.js
+          </TechWord>
           ,{" "}
-          <Tooltip
-            containerClassName="text-secondary"
-            content={<TechTooltip tech="Redux Toolkit" description="Predictable state management for React applications" />}
-          >
-            <span className="text-white font-medium cursor-help border-b border-dotted border-white/30 hover:border-[#915EFF] transition-colors">Redux Toolkit</span>
-          </Tooltip>
+          <TechWord tech="Redux Toolkit" description="Predictable state management for React applications">
+            Redux Toolkit
+          </TechWord>
           , and{" "}
-          <Tooltip
-            containerClassName="text-secondary"
-            content={<TechTooltip tech="Tailwind CSS & Bootstrap" description="Utility-first and component-based styling for responsive design" />}
-          >
-            <span className="text-white font-medium cursor-help border-b border-dotted border-white/30 hover:border-[#915EFF] transition-colors">Tailwind CSS, Bootstrap</span>
-          </Tooltip>
+          <TechWord tech="Tailwind CSS & Bootstrap" description="Utility-first and component-based styling for responsive design">
+            Tailwind CSS, Bootstrap
+          </TechWord>
           . On the backend I work with{" "}
-          <Tooltip
-            containerClassName="text-secondary"
-            content={<TechTooltip tech="Node.js & Express.js" description="Building fast, scalable server-side applications" />}
-          >
-            <span className="text-white font-medium cursor-help border-b border-dotted border-white/30 hover:border-[#915EFF] transition-colors">Node.js, Express.js</span>
-          </Tooltip>
+          <TechWord tech="Node.js & Express.js" description="Building fast, scalable server-side applications">
+            Node.js, Express.js
+          </TechWord>
           ,{" "}
-          <Tooltip
-            containerClassName="text-secondary"
-            content={<TechTooltip tech="MongoDB & Mongoose" description="NoSQL database and schema modeling for modern applications" />}
-          >
-            <span className="text-white font-medium cursor-help border-b border-dotted border-white/30 hover:border-[#915EFF] transition-colors">MongoDB, Mongoose</span>
-          </Tooltip>
+          <TechWord tech="Python & FastAPI" description="High-performance Python APIs and AI service backends">
+            Python, FastAPI
+          </TechWord>
           ,{" "}
-          <Tooltip
-            containerClassName="text-secondary"
-            content={<TechTooltip tech="MySQL" description="Relational database design and querying" />}
-          >
-            <span className="text-white font-medium cursor-help border-b border-dotted border-white/30 hover:border-[#915EFF] transition-colors">MySQL</span>
-          </Tooltip>
+          <TechWord tech="MongoDB & Mongoose" description="NoSQL database and schema modeling for modern applications">
+            MongoDB, Mongoose
+          </TechWord>
           ,{" "}
-          <Tooltip
-            containerClassName="text-secondary"
-            content={<TechTooltip tech="REST APIs" description="Designing and integrating RESTful services" />}
-          >
-            <span className="text-white font-medium cursor-help border-b border-dotted border-white/30 hover:border-[#915EFF] transition-colors">REST APIs</span>
-          </Tooltip>
+          <TechWord tech="MySQL" description="Relational database design and querying">
+            MySQL
+          </TechWord>
+          ,{" "}
+          <TechWord tech="REST APIs" description="Designing and integrating RESTful services">
+            REST APIs
+          </TechWord>
           , and{" "}
-          <Tooltip
-            containerClassName="text-secondary"
-            content={<TechTooltip tech="JWT Authentication" description="Secure, token-based authentication and API integration" />}
-          >
-            <span className="text-white font-medium cursor-help border-b border-dotted border-white/30 hover:border-[#915EFF] transition-colors">JWT Authentication</span>
-          </Tooltip>
+          <TechWord tech="JWT Authentication" description="Secure, token-based authentication and authorization">
+            JWT Authentication
+          </TechWord>
           . On the DevOps side I use{" "}
-          <Tooltip
-            containerClassName="text-secondary"
-            content={<TechTooltip tech="Docker & Kubernetes" description="Containerization and orchestration for scalable deployments" />}
-          >
-            <span className="text-white font-medium cursor-help border-b border-dotted border-white/30 hover:border-[#915EFF] transition-colors">Docker, Kubernetes</span>
-          </Tooltip>
+          <TechWord tech="Docker & Kubernetes" description="Containerization and orchestration for scalable deployments">
+            Docker, Kubernetes
+          </TechWord>
           ,{" "}
-          <Tooltip
-            containerClassName="text-secondary"
-            content={<TechTooltip tech="Huggingface" description="Open-source ML models and AI tooling" />}
-          >
-            <span className="text-white font-medium cursor-help border-b border-dotted border-white/30 hover:border-[#915EFF] transition-colors">Huggingface</span>
-          </Tooltip>
+          <TechWord tech="Huggingface" description="Open-source ML models and AI tooling">
+            Huggingface
+          </TechWord>
           ,{" "}
-          <Tooltip
-            containerClassName="text-secondary"
-            content={<TechTooltip tech="Vercel" description="Deployment and hosting platform for modern web apps" />}
-          >
-            <span className="text-white font-medium cursor-help border-b border-dotted border-white/30 hover:border-[#915EFF] transition-colors">Vercel</span>
-          </Tooltip>
+          <TechWord tech="Vercel" description="Deployment and hosting platform for modern web apps">
+            Vercel
+          </TechWord>
           , and{" "}
-          <Tooltip
-            containerClassName="text-secondary"
-            content={<TechTooltip tech="Git & GitHub" description="Version control and collaboration" />}
-          >
-            <span className="text-white font-medium cursor-help border-b border-dotted border-white/30 hover:border-[#915EFF] transition-colors">Git, GitHub, and Postman</span>
-          </Tooltip>
+          <TechWord tech="Git & GitHub" description="Version control and collaboration">
+            Git, GitHub, and Postman
+          </TechWord>
           {" "}for development workflow.
         </p>
       </motion.div>
@@ -332,19 +302,19 @@ const About = () => {
         transition={{ duration: 0.3 }}
       >
         <p className='text-secondary text-[17px] max-w-3xl leading-[32px]'>
-          As a <span className="text-[#915EFF] font-semibold">Software Engineer at CarbonRepro</span>, I'm deepening
-          my work in{" "}
-          <Tooltip
-            containerClassName="text-secondary"
-            content={<AIToolTooltip tool="Agentic AI" description="Building autonomous AI agents that can perform complex tasks independently" />}
-          >
-            <span className="text-purple-300 font-medium cursor-help border-b border-dotted border-purple-300/30 hover:border-[#915EFF] transition-colors">Agentic AI & Intelligent Agents</span>
-          </Tooltip>
-          , combining frontend and backend development with cutting-edge AI technologies. I'm focused on
-          architecting scalable backend systems and creating{" "}
-          <span className="text-white font-medium">impactful AI-powered solutions</span> that push the boundaries of
-          what's possible. My goal is to build intelligent systems that not only solve real-world problems but also
-          inspire innovation in the tech landscape.
+          As a <span className="text-[#915EFF] font-semibold">Full Stack Engineer at PRAQEN</span>, I'm growing my
+          production experience with real-time systems, secure APIs, and scalable backend architecture, while
+          deepening my work in{" "}
+          <AIWord tool="Agentic AI" description="Building autonomous AI agents that can perform complex tasks independently">
+            Agentic AI & RAG systems
+          </AIWord>
+          . I'm currently completing the{" "}
+          <span className="text-white font-medium">AI Engineer track at Governor House</span> and building projects
+          like <span className="text-white font-medium">Nexa AI</span>, an AI voice meeting platform, and an{" "}
+          <span className="text-white font-medium">AI CRM Digital FTE</span> for multi-channel customer support. My goal
+          is to combine strong full-stack engineering with{" "}
+          <span className="text-white font-medium">impactful AI-powered solutions</span> that solve real-world problems
+          and inspire innovation in the tech landscape.
         </p>
       </motion.div>
     )
@@ -446,10 +416,10 @@ const About = () => {
         transition={{ delay: 0.4 }}
       >
         {[
-          { label: "Projects Completed", value: 2, suffix: "+" },
-          { label: "Technologies Mastered", value: 20, suffix: "+" },
+          { label: "Projects Completed", value: 7, suffix: "+" },
+          { label: "Technologies Used", value: 20, suffix: "+" },
           { label: "Years Experience", value: 2, suffix: "+" },
-          { label: "Code Quality", value: 100, suffix: "%" },
+          { label: "Medical Queries Served", value: 8000, suffix: "+" },
         ].map((stat, index) => (
           <motion.div
             key={stat.label}

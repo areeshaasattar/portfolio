@@ -82,6 +82,21 @@ const Hero = () => {
             <p className="mt-2">crafting web & AI solutions.</p>
           </motion.div>
 
+{/* Short description - add right after the heroSubText block */}
+<motion.p
+  className="mt-5 max-w-xl text-secondary text-[14px] sm:text-[16px] leading-[24px] sm:leading-[28px]"
+  initial={{ opacity: 0, x: -50 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8, delay: 0.45, ease: "easeOut" }}
+>
+  Full Stack Engineer at <span className="text-white font-medium">PRAQEN</span>,
+  building scalable APIs, authentication and wallet systems for a live trading
+  platform. I also build{" "}
+  <span className="text-[#915EFF] font-medium">RAG pipelines</span> and{" "}
+  <span className="text-[#915EFF] font-medium">agentic AI workflows</span> using
+  Python, FastAPI, Next.js and the OpenAI SDK.
+</motion.p>
+
           {/* CTA Buttons */}
           <motion.div
             className="flex gap-4 mt-8 pointer-events-auto"
