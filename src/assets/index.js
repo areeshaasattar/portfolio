@@ -52,6 +52,8 @@ import todo from "./todo.png"
 import shopco from "./shopco.png"
 import nexa from "./nexa.png"
 import dashboard from "./dashboard.png"
+import crm from "./crm.jpg"
+import aiEmployee from "./aiEmployee.jpg" 
 
 export {
   logo,
@@ -102,5 +104,7 @@ export {
   todo,
   shopco,
   nexa,
-  dashboard
+  dashboard,
+  crm,
+  aiEmployee
 };

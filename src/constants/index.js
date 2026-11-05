@@ -33,11 +33,12 @@ import {
   jobit,
   tripguide,
   threejs,
-  blog,
+  crm,
   book,
   todo,
   nexa,
-  dashboard
+  dashboard,
+  aiEmployee,
 } from "../assets";
 
 export const navLinks = [
@@ -277,48 +278,30 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Blog Website with CMS",
+    name: "AI CRM Digital FTE - Customer Support Automation",
     description:
-      "A full-featured blog platform with Content Management System built using Next.js and modern web technologies. Features include dynamic content handling, responsive design, and SEO optimization.",
+      "An AI-powered Digital FTE system for automated customer support and CRM workflow management. Features a multi-channel architecture (Gmail, WhatsApp, Web Forms) built with FastAPI, OpenAI Agents SDK, and Kafka, with an event-driven backend deployed using Docker and Kubernetes.",
     tags: [
-      {
-        name: "nextjs",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "cms",
-        color: "green-text-gradient",
-      },
-      {
-        name: "tailwind",
-        color: "pink-text-gradient",
-      },
+      { name: "fastapi", color: "blue-text-gradient" },
+      { name: "kafka", color: "green-text-gradient" },
+      { name: "openai-sdk", color: "pink-text-gradient" },
     ],
-    image: blog,
-    source_code_link: "https://github.com/Areesha-sites/milestone3-blog-website.git",
-    liveLink: "https://areesha-milestone3-blog-website.vercel.app/",
+    image: crm,
+    source_code_link:
+      "https://github.com/areeshaasattar/customer-support-fte-final",
+    // no liveLink, so only the GitHub button appears in the overlay
   },
-  {
-    name: "ChowChamp - Food E-commerce",
+    {
+    name: "Personal AI Employee - Autonomous Digital FTE",
     description:
-      "A modern food e-commerce platform with seamless user experience. Features include product catalog, shopping cart, order management, and responsive design for all devices.",
+      "A local-first, agent-driven AI employee powered by Claude Code and an Obsidian vault. Python watchers monitor inputs like Gmail and the file system, Claude plans and reasons over tasks, and MCP servers carry out actions, with a human-in-the-loop approval workflow for sensitive operations.",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "mongodb",
-        color: "green-text-gradient",
-      },
-      {
-        name: "restapi",
-        color: "pink-text-gradient",
-      },
+      { name: "claude-code", color: "blue-text-gradient" },
+      { name: "mcp", color: "green-text-gradient" },
+      { name: "python", color: "pink-text-gradient" },
     ],
-    image: food,
-    source_code_link: "https://github.com/Areesha-sites/3b-milestone-ecommerce-website.git",
-    liveLink: "https://3b-milestone-ecommerce-website.vercel.app/",
+    image: aiEmployee, // add: import aiEmployee from "../assets/ai-employee.png"
+    source_code_link: "https://github.com/areeshaasattar/Personal_AI_Employee",
   },
   {
     name: "Physical AI & Humanoid Robotics Website",
@@ -339,8 +322,8 @@ const projects = [
       },
     ],
     image: book,
-    source_code_link: "https://github.com/GlitchPhantomX/Hackathon1-humanoids-robotics-book.git",
-    liveLink: "https://hackathon1-humanoids-robotics-book.vercel.app/",
+    source_code_link:
+      "https://github.com/GlitchPhantomX/Hackathon1-humanoids-robotics-book.git",
   },
   {
     name: "AI Chat Application",
@@ -361,22 +344,22 @@ const projects = [
       },
     ],
     image: todo,
-    source_code_link: "https://github.com/GlitchPhantomX/Hackathon2-Todo-App.git",
+    source_code_link:
+      "https://github.com/GlitchPhantomX/Hackathon2-Todo-App.git",
     liveLink: "https://todo-master-app.vercel.app/",
   },
- {
-  name: "Nexa AI - AI Voice Meeting Platform",
-  description:
-    "An AI-powered SaaS platform for real-time video meetings with custom AI voice agents. Features a provider-agnostic LLM architecture (OpenRouter, Gemini, Groq), secure multi-provider authentication, and automated meeting lifecycle management using Stream Video SDK.",
-  tags: [
-    { name: "nextjs", color: "blue-text-gradient" },
-    { name: "stream-video", color: "green-text-gradient" },
-    { name: "openrouter", color: "pink-text-gradient" },
-  ],
-  image: nexa,
-  source_code_link: "https://github.com/areeshaasattar/Nexa-ai",
-  liveLink: "https://todo-master-app.vercel.app/",
-},
+  {
+    name: "Nexa AI - AI Voice Meeting Platform",
+    description:
+      "An AI-powered SaaS platform for real-time video meetings with custom AI voice agents. Features a provider-agnostic LLM architecture (OpenRouter, Gemini, Groq), secure multi-provider authentication, and automated meeting lifecycle management using Stream Video SDK.",
+    tags: [
+      { name: "nextjs", color: "blue-text-gradient" },
+      { name: "stream-video", color: "green-text-gradient" },
+      { name: "openrouter", color: "pink-text-gradient" },
+    ],
+    image: nexa,
+    source_code_link: "https://github.com/areeshaasattar/Nexa-ai",
+  },
   {
     name: "Task Management Dashboard",
     description:
@@ -396,7 +379,8 @@ const projects = [
       },
     ],
     image: dashboard,
-    source_code_link: "https://github.com/Areesha-sites/Hackathon_Admin_Panel.git",
+    source_code_link:
+      "https://github.com/Areesha-sites/Hackathon_Admin_Panel.git",
     liveLink: "https://hackathon-admin-panel-azure.vercel.app/",
   },
 ];

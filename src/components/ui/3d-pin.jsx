@@ -9,7 +9,8 @@ export const PinContainer = ({
   title,
   href,
   className,
-  containerClassName
+  containerClassName,
+  onClick
 }) => {
   const [transform, setTransform] = useState("translate(-50%,-50%) rotateX(0deg)");
 
@@ -21,11 +22,11 @@ export const PinContainer = ({
   };
 
   return (
-    <a
-      className={cn("relative group/pin z-50  cursor-pointer", containerClassName)}
+    <div
+      className={cn("relative group/pin z-50 cursor-pointer", containerClassName)}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      href={href || "/"}>
+      onClick={onClick}>
       <div
         style={{
           perspective: "1000px",
@@ -41,7 +42,7 @@ export const PinContainer = ({
         </div>
       </div>
       <PinPerspective title={title} href={href} />
-    </a>
+    </div>
   );
 };
 
