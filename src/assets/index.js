@@ -50,6 +50,7 @@ import tripguide from "./tripguide.png";
 import book from "./book.png"
 import todo from "./todo.png"
 import shopco from "./shopco.png"
+import nexa from "./nexa.png"
 import dashboard from "./dashboard.png"
 
 export {
@@ -100,5 +101,6 @@ export {
   book,
   todo,
   shopco,
+  nexa,
   dashboard
 };

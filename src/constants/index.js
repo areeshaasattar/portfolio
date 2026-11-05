@@ -36,7 +36,7 @@ import {
   blog,
   book,
   todo,
-  shopco,
+  nexa,
   dashboard
 } from "../assets";
 
@@ -364,28 +364,19 @@ const projects = [
     source_code_link: "https://github.com/GlitchPhantomX/Hackathon2-Todo-App.git",
     liveLink: "https://todo-master-app.vercel.app/",
   },
-  {
-    name: "Portfolio Website",
-    description:
-      "A modern, responsive portfolio website showcasing projects, skills, and experience. Built with React.js, Three.js for 3D elements, and Framer Motion for smooth animations.",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "threejs",
-        color: "green-text-gradient",
-      },
-      {
-        name: "framer-motion",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: shopco,
-    source_code_link: "https://github.com/Areesha-sites/Marketplace_Hackathon_SHOPCO.git",
-    liveLink: "https://marketplace-hackathon-shopco.vercel.app/",
-  },
+ {
+  name: "Nexa AI - AI Voice Meeting Platform",
+  description:
+    "An AI-powered SaaS platform for real-time video meetings with custom AI voice agents. Features a provider-agnostic LLM architecture (OpenRouter, Gemini, Groq), secure multi-provider authentication, and automated meeting lifecycle management using Stream Video SDK.",
+  tags: [
+    { name: "nextjs", color: "blue-text-gradient" },
+    { name: "stream-video", color: "green-text-gradient" },
+    { name: "openrouter", color: "pink-text-gradient" },
+  ],
+  image: nexa,
+  source_code_link: "https://github.com/areeshaasattar/Nexa-ai",
+  liveLink: "https://todo-master-app.vercel.app/",
+},
   {
     name: "Task Management Dashboard",
     description:
