@@ -123,22 +123,25 @@ const Experience = () => {
       </div>
 
       {/* Section Header with animations */}
-      <motion.div variants={textVariant()} className="relative z-10">
-        <motion.p 
-          className={`${styles.sectionSubText} text-center relative inline-block mx-auto`}
-        >
-          What I have done so far
-          <motion.span
-            className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 h-[2px] bg-[#915EFF]"
-            initial={{ width: 0 }}
-            whileInView={{ width: "100%" }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          />
-        </motion.p>
-        
-        <h2 className={`${styles.sectionHeadText}`}>
-          Work Experience.
-        </h2>
+     <motion.div
+  variants={textVariant()}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true }}
+  className="relative z-10"
+>
+  <motion.p className={`${styles.sectionSubText} relative inline-block`}>
+    What I have done so far
+    <motion.span
+      className="absolute -bottom-1 left-0 h-[2px] bg-[#915EFF]"
+      initial={{ width: 0 }}
+      whileInView={{ width: "100%" }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, delay: 0.3 }}
+    />
+  </motion.p>
+
+  <h2 className={styles.sectionHeadText}>Work Experience.</h2>
 
         {/* Decorative elements */}
         <motion.div

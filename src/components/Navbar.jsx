@@ -33,6 +33,10 @@ const Navbar = () => {
       title: "About",
     },
     {
+      id: "services",
+      title: "Services",
+    },
+    {
       id: "work",
       title: "Experience",
     },

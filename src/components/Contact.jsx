@@ -66,7 +66,7 @@ const Contact = () => {
     { label: "Email", value: "areesha21314@gmail.com", link: "mailto:areesha21314@gmail.com" },
     { label: "Phone", value: "+92 331 2969746", link: "tel:+923312969746" },
     { label: "Location", value: "Karachi, Pakistan", link: null },
-    { label: "GitHub", value: "@GlitchPhantomX", link: "https://github.com/GlitchPhantomX" },
+    { label: "GitHub", value: "@areeshaasattar", link: "https://github.com/areeshaasattar" },
   ];
 
   return (
