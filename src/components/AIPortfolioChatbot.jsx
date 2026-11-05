@@ -113,20 +113,12 @@ INSTRUCTIONS:
     setIsLoading(true);
 
     try {
-      const apiKey = import.meta.env.VITE_MISTRAL_API_KEY;
-
-      if (!apiKey) {
-        throw new Error('API key not configured');
-      }
-
-      const response = await fetch('https://api.mistral.ai/v1/chat/completions', {
+      const response = await fetch('/api/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${apiKey}`
         },
         body: JSON.stringify({
-          model: 'mistral-small-latest',
           messages: [
             { role: 'system', content: SYSTEM_PROMPT },
             ...messages.slice(-6),
@@ -142,8 +134,11 @@ INSTRUCTIONS:
       }
 
       const data = await response.json();
-      const assistantMessage = data.choices[0]?.message?.content ||
-        'Sorry, I could not process that request.';
+      const assistantMessage = data.reply;
+
+      if (typeof assistantMessage !== 'string' || !assistantMessage.trim()) {
+        throw new Error('Chat API returned an empty response');
+      }
 
       setMessages(prev => [...prev, { role: 'assistant', content: assistantMessage }]);
     } catch (error) {
